@@ -9,23 +9,57 @@
 <body>
     <div class="container">
         <h1>Organizador de Dados de Pedômetro</h1>
-        <p>Insira os dados dos passos diários e clique em "Filtrar" para ver os resultados.</p>
-        
-        <form id="dataForm">
-            <label for="pedometerData">Dados de Passos (separados por vírgula):</label>
-            <input type="text" id="pedometerData" placeholder="Ex: 10000, 12000, 9000">
-            
-            <label for="threshold">Limite de Desvio Padrão (threshold):</label>
-            <input type="number" id="threshold" value="2" min="1" max="5">
-            
-            <button type="button" onclick="processData()">Filtrar</button>
-        </form>
+        <div class="tabs">
+            <button class="tab-button" onclick="openTab('funcionarios')">Funcionários</button>
+            <button class="tab-button" onclick="openTab('geral')">Geral</button>
+        </div>
 
-        <div id="results">
-            <h2>Resultados</h2>
-            <p id="meanResult">Média: --</p>
-            <p id="stdDevResult">Desvio-padrão: --</p>
-            <p id="filteredDataResult">Dados filtrados: --</p>
+        <div id="funcionarios" class="tab-content">
+            <h2>Dados dos Funcionários</h2>
+            <form id="funcionariosForm">
+                <label for="funcionariosData">Dados dos Funcionários (separados por vírgula):</label>
+                <input type="text" id="funcionariosData" placeholder="Ex: 9000, 10000, 5000">
+                
+                <label for="funcionariosCategory">Categoria:</label>
+                <select id="funcionariosCategory">
+                    <option value="secretaria">Secretaria</option>
+                    <option value="auxiliares">Auxiliares</option>
+                    <option value="professores">Professores</option>
+                    <option value="faxineiros">Faxineiros</option>
+                </select>
+
+                <label for="funcionariosThreshold">Limite de Desvio Padrão (threshold):</label>
+                <input type="number" id="funcionariosThreshold" value="2" min="1" max="5">
+                
+                <button type="button" onclick="processFuncionariosData()">Filtrar</button>
+            </form>
+
+            <div id="funcionariosResults">
+                <h3>Resultados</h3>
+                <p id="funcionariosMeanResult">Média: --</p>
+                <p id="funcionariosStdDevResult">Desvio-padrão: --</p>
+                <p id="funcionariosFilteredDataResult">Dados filtrados: --</p>
+            </div>
+        </div>
+
+        <div id="geral" class="tab-content" style="display:none;">
+            <h2>Dados Gerais</h2>
+            <form id="geralForm">
+                <label for="geralData">Dados Gerais (separados por vírgula):</label>
+                <input type="text" id="geralData" placeholder="Ex: 10000, 12000, 9000">
+                
+                <label for="geralThreshold">Limite de Desvio Padrão (threshold):</label>
+                <input type="number" id="geralThreshold" value="2" min="1" max="5">
+                
+                <button type="button" onclick="processGeralData()">Filtrar</button>
+            </form>
+
+            <div id="geralResults">
+                <h3>Resultados</h3>
+                <p id="geralMeanResult">Média: --</p>
+                <p id="geralStdDevResult">Desvio-padrão: --</p>
+                <p id="geralFilteredDataResult">Dados filtrados: --</p>
+            </div>
         </div>
     </div>
 
