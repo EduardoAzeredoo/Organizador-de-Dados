@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizador de Dados de Pedômetro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Organizador de Dados de Pedômetro</h1>
+        <p>Insira os dados dos passos diários e clique em "Filtrar" para ver os resultados.</p>
+        
+        <form id="dataForm">
+            <label for="pedometerData">Dados de Passos (separados por vírgula):</label>
+            <input type="text" id="pedometerData" placeholder="Ex: 10000, 12000, 9000">
+            
+            <label for="threshold">Limite de Desvio Padrão (threshold):</label>
+            <input type="number" id="threshold" value="2" min="1" max="5">
+            
+            <button type="button" onclick="processData()">Filtrar</button>
+        </form>
+
+        <div id="results">
+            <h2>Resultados</h2>
+            <p id="meanResult">Média: --</p>
+            <p id="stdDevResult">Desvio-padrão: --</p>
+            <p id="filteredDataResult">Dados filtrados: --</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
